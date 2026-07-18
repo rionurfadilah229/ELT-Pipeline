@@ -32,6 +32,7 @@ This output is only possible after both DAGs succeed: dag_load_and_transfer move
 ![alt text](https://github.com/rionurfadilah229/ELT-Pipeline/blob/202999afb953b1d8e9cc1811978b003ed8d8823f/Screenshot%20(2253).png)
 
 If either DAG fails, this query would return no rows or an error — so a populated result like the one below is direct evidence that the full pipeline ran end-to-end successfully.
+
 ![alt text](https://github.com/rionurfadilah229/ELT-Pipeline/blob/202999afb953b1d8e9cc1811978b003ed8d8823f/Screenshot%20(2488).png)
 ![alt text](https://github.com/rionurfadilah229/ELT-Pipeline/blob/202999afb953b1d8e9cc1811978b003ed8d8823f/Screenshot%20(2520).png)
 ![alt text](https://github.com/rionurfadilah229/ELT-Pipeline/blob/202999afb953b1d8e9cc1811978b003ed8d8823f/Screenshot%202026-07-18%20232344.png)
