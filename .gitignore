@@ -1,0 +1,53 @@
+gitignore
+// filepath: c:\belajar_data_engineer\project_de_2_elt\.gitignore
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.pytype/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Airflow
+airflow.cfg
+airflow.db
+logs/
+airflow-webserver.pid
+airflow-scheduler.pid
+airflow-worker.pid
+*.log
+
+# dbt
+target/
+dbt_packages/
+logs/
+profiles.yml
+
+# Docker / local runtime
+.env
+.env.*
+!.env.example
+docker-compose.override.yml
+
+# PostgreSQL / local data
+postgres_data/
+pgdata/
+*.dump
+*.sql.gz
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/

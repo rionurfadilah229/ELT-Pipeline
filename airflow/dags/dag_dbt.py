@@ -1,0 +1,47 @@
+from airflow import DAG
+from datetime import datetime
+from airflow.providers.docker.operators.docker import DockerOperator
+from docker.types import Mount
+
+default_args = {
+    "owner": "rio",
+    "depends_on_past": False,
+}
+
+dag = DAG(
+    dag_id="dag_dbt",
+    default_args=default_args,
+    start_date=datetime(2026, 7, 11),
+    catchup=False,
+    schedule_interval=None,
+)
+
+task_transforms_dbt = DockerOperator(
+    task_id="transformation_using_dbt",
+    image="ghcr.io/dbt-labs/dbt-postgres:1.4.7",
+    command=[
+        "run",
+        "--profiles-dir",
+        "/root",
+        "--project-dir",
+        "/dbt",
+        "--full-refresh",
+    ],
+    auto_remove=True,
+    mount_tmp_dir=False,
+    docker_url="unix://var/run/docker.sock",
+    network_mode="project_de_2_elt_elt_network",
+    mounts=[
+        Mount(
+            source="C:/belajar_data_engineer/project_de_2_elt/postgres_transformations",
+            target="/dbt",
+            type="bind",
+        ),
+        Mount(
+            source="C:/Users/ASUS/.dbt",
+            target="/root",
+            type="bind",
+        ),
+    ],
+    dag=dag,
+)
